@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 
 export default function Users() {
   const [users, setUsers] = useState([]);
@@ -25,8 +26,13 @@ export default function Users() {
       </button>
 
       <ul>
-        {users.map((user) => (
-          <li key={user.id}>{user.name}</li>
+        {users.map((user) =>( 
+          <li key={user.id}>
+            Nombre: {user.name}<br></br>
+            Email: {user.email}<br></br>
+            <NavLink to ="/details/{}">Detalles </NavLink>
+            <br />
+          </li>
         ))}
       </ul>
     </div>
