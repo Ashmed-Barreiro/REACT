@@ -8,6 +8,7 @@ export default function Users() {
   const loadUsers = async () => {
     try {
       setLoading(true);
+      // Este fetch coge los datos de una web externa
       const res = await fetch("https://jsonplaceholder.typicode.com/users");
       const data = await res.json();
       setUsers(data);
@@ -21,17 +22,14 @@ export default function Users() {
   return (
     <div>
       <h1>Users</h1>
-      <button onClick={loadUsers} disabled={loading}>
-        {loading ? "Cargando..." : "Cargar usuarios"}
-      </button>
+      <button onClick={loadUsers}>Cargar Usuarios</button>
 
       <ul>
         {users.map((user) =>( 
           <li key={user.id}>
             Nombre: {user.name}<br></br>
             Email: {user.email}<br></br>
-            <NavLink to ="/details/{}">Detalles </NavLink>
-            <br />
+            <NavLink to={"/details/" + user.id} >Detalles </NavLink>
           </li>
         ))}
       </ul>

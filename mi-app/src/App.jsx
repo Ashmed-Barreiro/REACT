@@ -3,6 +3,7 @@ import AppLayout from "./layout/AppLayout";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Users from "./pages/Users";
+import Details from "./pages/Details"
 
 export default function App() {
   return (
@@ -11,6 +12,7 @@ export default function App() {
         <Route  path="/" element={<Home />} />
         <Route path="/users" element ={<Users />}/>
         <Route path="*" element={<About />} />
+        <Route path="/details/:id" element ={<Details />}/>
       </Routes>
     </AppLayout>
   );
