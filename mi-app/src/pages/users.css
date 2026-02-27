@@ -1,0 +1,73 @@
+/* Layout general */
+.users-page {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.users-title {
+  margin: 0 0 16px;
+}
+
+.users-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  display: grid;
+  gap: 16px;
+
+  /* Mobile: 1 columna */
+  grid-template-columns: 1fr;
+}
+
+/* Tablet */
+@media (min-width: 600px) {
+  .users-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop */
+@media (min-width: 900px) {
+  .users-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Card */
+.user {
+  border: 1px solid #000;
+  border-radius: 10px;
+  padding: 12px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.user p {
+  margin: 0;
+}
+
+/* Link visible y usable */
+.user a {
+  display: inline-block;
+  margin-top: 6px;
+  text-decoration: none;
+  border: 1px solid #000;
+  padding: 8px 10px;
+  border-radius: 8px;
+  width: fit-content;
+}
+
+/* Accesibilidad: foco visible */
+.user a:focus {
+  outline: 2px solid #000;
+  outline-offset: 2px;
+}
+img{
+  width: 30%;
+  border-radius: 10px;
+}
