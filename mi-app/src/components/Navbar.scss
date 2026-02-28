@@ -1,0 +1,134 @@
+@use "../variables" as *;
+
+/* Condicional (flag) */
+$use-shadow: true;
+
+/* Nitidez */
+.nav {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+
+  max-width: $container-max;
+  margin: 0 auto;
+  padding: $space-3 $space-4;
+
+  display: flex;
+  align-items: flex-start; /* móvil: menú desplegable */
+  justify-content: space-between;
+  gap: $space-4;
+
+  background: $color-bg;
+  color: $color-text;
+
+  @if $use-shadow {
+    box-shadow: $shadow;
+  } @else {
+    border-bottom: 1px solid $color-border;
+  }
+}
+
+/* Mobile first: botón visible */
+.nav-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: $space-2 $space-3;
+  border-radius: $radius;
+  border: 1px solid $color-border;
+  background: transparent;
+  color: $color-text;
+  cursor: pointer;
+
+  &:focus {
+    outline: 2px solid $color-border;
+    outline-offset: 2px;
+  }
+}
+
+/* Mobile first: links ocultos salvo .open */
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  display: none;
+  width: 100%;
+
+  &.open {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $space-2;
+  }
+
+  li {
+    width: 100%;
+    background-color: $primary-color;
+    border-radius: $radius;
+    padding: $space-2;
+  }
+
+  a {
+    display: block;
+    width: 100%;
+    padding: $space-2 $space-3;
+    border-radius: $radius;
+    text-decoration: none;
+    color: $color-text;
+    border: 1px solid transparent;
+
+    &:focus {
+      outline: 2px solid $color-border;
+      outline-offset: 2px;
+    }
+
+    &.active {
+      border-color: $color-border;
+    }
+  }
+}
+
+/* Bucle: generar estilos de estados sin repetir */
+$states: (hover, active);
+@each $st in $states {
+  .nav-links a:#{$st} {
+    border-color: $color-border;
+  }
+}
+
+/* Tablet */
+@media (min-width: $bp-md) {
+  .nav {
+    align-items: center;
+  }
+
+  .nav-toggle {
+    display: none;
+  }
+
+  .nav-links {
+    display: flex;
+    width: auto;
+    flex-direction: row;
+    align-items: center;
+    gap: $space-3;
+
+    li {
+      width: auto;
+    }
+
+    a {
+      width: auto;
+      display: inline-block;
+    }
+  }
+}
+
+/* Desktop */
+@media (min-width: $bp-lg) {
+  .nav {
+    padding: $space-4 $space-4;
+  }
+}
