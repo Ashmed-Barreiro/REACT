@@ -8,7 +8,15 @@ export default function Navbar() {
     setIsOpen((prev)=>!prev)
     //console.log(isOpen)
   }) 
+  
+  /*
+  boton con area-label
+  
+  <button aria-label="Enviar correo">
+  <i class="fa fa-envelope"></i>
+</button>
 
+*/
 
   return (
     <nav className="nav">

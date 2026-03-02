@@ -17,7 +17,9 @@ export default function Contact() {
       return;
     }
 
-    if (!form.email.includes("@" && ".")) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(form.email.trim())) {
       setError("Email inválido.");
       return;
     }
@@ -29,6 +31,7 @@ export default function Contact() {
   };
 
   return (
+    <main>
     <form onSubmit={handleSubmit}>
       <label htmlFor="name">Name</label>
       <input
@@ -59,9 +62,9 @@ export default function Contact() {
         onChange={handleChange}
       />
 
-      {error && <p role="alert">{error}</p>}
-
       <button type="submit">Send</button>
     </form>
+    {error && <span role="alert">{error}</span>}
+    </main>
   );
 }
