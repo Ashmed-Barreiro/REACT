@@ -129,6 +129,15 @@ Pautas del W3C para hacer webs accesibles.
 
 ---
 
+## Optimización de Imágenes
+
+- Usar formatos modernos como WebP.
+- Reducir peso antes de subirlas (TinyPNG, Squoosh).
+- Definir width y height para evitar saltos de diseño (CLS).
+- Usar loading="lazy".
+- Utilizar object-fit para imágenes responsive.
+- Incluir atributo alt por accesibilidad.
+
 # 🔵 USABILIDAD (UX)
 
 ## 📌 UI vs UX
